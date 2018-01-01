@@ -1,0 +1,257 @@
+<html>
+
+<script src="FileSaver.js"></script>
+
+<!-- run with "python -m http.server" !-->
+
+<div style="display:none">
+    <img id="BALDWIN-04" src="BALDWIN-04.jpg"/>
+    <img id="BALDWIN-05" src="BALDWIN-05.jpg"/>
+    <img id="BALDWIN-06" src="BALDWIN-06.jpg"/>
+    <img id="BALDWIN-07" src="BALDWIN-07.jpg"/>
+    <img id="BALDWIN-08" src="BALDWIN-08.jpg"/>
+</div>
+
+<p>
+Building: <input id="selBuilding" list="buildings" placeholder="Building" name="building">
+<datalist id="buildings">
+    <option value="BALDWIN">
+</datalist>
+</input>
+</p>
+<p>
+Floor <input id="selFloor" list="floors" placeholder="Floor" name="floor">
+<datalist id="floors">
+    <option value="04">
+    <option value="05">
+    <option value="06">
+    <option value="07">
+    <option value="08">
+    <option value="09">
+</datalist>
+</input>
+</p>
+
+<button id = "display">
+Display Map
+</button>
+
+<p>
+<canvas id="myCanvas" width="800" height="500"/>
+</p>
+
+<p>
+    Name: <input type="text" id="Name"/>
+</p>
+<p>
+    Pos: <input type="text" id="Posx"/><input type="text" id="Posy"/>
+</p>
+<p>
+    Edges: <textarea id="Edges" rows=4 cols=80>
+    </textarea>
+</p>
+
+<button id = "updateButton">
+Update
+</button>
+
+<button id = "saveButton">
+Download Map File
+</button>
+
+<script>
+var box_width = 800
+var box_height = 500
+var c=document.getElementById("myCanvas")
+var data = null
+var nodes = []
+var sf = 1.0
+var sel
+var move = true
+
+var building = ""
+var floor = ""
+
+var selBuilding = document.getElementById("selBuilding")
+var selFloor = document.getElementById("selFloor")
+
+var posx = document.getElementById("Posx")
+var posy = document.getElementById("Posy")
+var edges = document.getElementById("Edges")
+
+window.onload = function() {
+    c.addEventListener("mousemove", checkThingy, false);
+    c.addEventListener("mousedown", function() {if (sel != null) move = !move}, false);
+    document.getElementById("updateButton").addEventListener("click", copyAndSave)
+    document.getElementById("saveButton").addEventListener("click", function() {
+        var blob = new Blob([(new XMLSerializer()).serializeToString(data)], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, building + "-" + floor + "-map.xml")
+    })
+    document.getElementById("display").addEventListener("click", updateData)
+};
+
+function updateData(e) {
+    console.log(selFloor.value, selBuilding.value)
+    floor = selFloor.value
+    building = selBuilding.value
+    if (floor != "" && building != "") {
+        var map = loadXMLDoc(building + "-" + floor + "-map.xml")
+        data = map.getElementsByTagName("Map")[0]
+        nodes = data.getElementsByTagName("Node")
+        
+        update();
+    }
+}
+
+function copyAndSave(e) {
+    var name = document.getElementById("Name")
+    sel.setAttribute("name", name.value)
+    var parser = new DOMParser();
+    var newChilds = parser.parseFromString("<root>" + edges.value + "</root>", "text/xml").getElementsByTagName("root")[0]
+    while (sel.firstChild) {
+        sel.removeChild(sel.firstChild);
+    }
+    while (newChilds.hasChildNodes()) {
+        sel.appendChild(newChilds.removeChild(newChilds.firstChild))
+    }
+    for(index = 0; index < nodes.length; index++) {
+        if (nodes[index].getAttribute("pos") == sel.getAttribute("pos")) {
+            nodes[index] = sel;
+        }
+    }
+    
+    update()
+}
+
+function checkThingy(e) {
+    if (floor != "" && building != "") {
+        if (move) {
+            var rect = c.getBoundingClientRect();
+            var mouseX = e.clientX - rect.left
+            var mouseY = e.clientY - rect.top
+            //console.log(mouseX, mouseY)
+            sel = getNodeHover(mouseX, mouseY, 5)
+            update()
+            
+            if (sel != null) {
+                var name = document.getElementById("Name")
+                name.value = sel.getAttribute("name")
+                var pos = sel.getAttribute("pos")
+                var x = pos.substr(1, pos.indexOf(",") - 1)
+                var y = pos.substr(pos.indexOf(",") + 1, pos.length - pos.indexOf(",") - 2).trim()
+                posx.value = x
+                posy.value = y
+                edges.value = ""
+                var edgeval = sel.getElementsByTagName("Edge")
+                for (index = 0, len = edgeval.length; index < len; index++) {
+                    edge = edgeval[index]
+                    edges.value = edges.value + (new XMLSerializer()).serializeToString(edge) + "\n"
+                }
+            }
+        }
+    }
+}
+
+function getNodeHover(mx, my, rad) {
+    for (index = 0, len = nodes.length; index < len; index++) {
+        var node = nodes[index]
+        var pos = node.getAttribute("pos")
+        var x = parseInt(pos.substr(1, pos.indexOf(",") - 1))
+        var y = parseInt(pos.substr(pos.indexOf(",") + 1, pos.length - pos.indexOf(",") - 2).trim())
+        x = x * sf
+        y = y * sf
+        var dist = Math.sqrt((mx - x) * (mx - x) + (my - y) * (my - y))
+        if (dist < rad) {
+            return node
+        }
+    }
+    return null
+}
+
+function update() {
+    var ctx=c.getContext("2d")
+    var img=document.getElementById(building + "-" + floor)
+    sf = getSf(img)
+    ctx.drawImage(img,0,0, img.width * sf, img.height * sf);
+    
+    for (index = 0, len = nodes.length; index < len; index++) {
+        var node = nodes[index]
+        var edges = node.getElementsByTagName("Edge")
+        for (i2 = 0, len2 = edges.length; i2 < len2; i2++) {
+            if (!edges[i2].hasAttribute("onFloor") || edges[i2].getAttribute("onFloor") == "True")
+                drawEdge(ctx, node, edges[i2], sf)
+        }
+    }
+    for (index = 0, len = nodes.length; index < len; index++) {
+        if (sel != null && nodes[index].getAttribute("pos") == sel.getAttribute("pos"))
+            drawNode(ctx, nodes[index], sf, 5)
+        else 
+            drawNode(ctx, nodes[index], sf, 1)
+    }
+}
+
+function drawNode(ctx, node, sf, rad) {
+    var pos = node.getAttribute("pos")
+    var x = parseInt(pos.substr(1, pos.indexOf(",") - 1))
+    var y = parseInt(pos.substr(pos.indexOf(",") + 1, pos.length - pos.indexOf(",") - 2).trim())
+    x = x * sf
+    y = y * sf
+    darwCircle(ctx, x, y, rad)
+}
+
+function drawEdge(ctx, node, edge, sf) {
+    var pos = node.getAttribute("pos")
+    var x1 = parseInt(pos.substr(1, pos.indexOf(",") - 1))
+    var y1 = parseInt(pos.substr(pos.indexOf(",") + 1, pos.length - pos.indexOf(",") - 2).trim())
+    x1 = x1 * sf
+    y1 = y1 * sf
+    var to = edge.getAttribute("to")
+    var x2 = parseInt(to.substr(1, to.indexOf(",") - 1))
+    var y2 = parseInt(to.substr(to.indexOf(",") + 1, to.length - to.indexOf(",") - 2).trim())
+    x2 = x2 * sf
+    y2 = y2 * sf
+    
+    if (edge.getAttribute("type") == "FLAT")
+        drawLine(ctx, x1, y1, x2, y2, 'red')
+    else 
+        drawLine(ctx, x1, y1, x2, y2, 'green')
+        
+}
+
+function drawLine(ctx, x1, y1, x2, y2, color) {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2,y2);
+    ctx.strokeStyle = color;
+    ctx.stroke();
+}
+
+function darwCircle(ctx, x, y, radius) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, true)
+    ctx.fillStyle = 'black';
+    ctx.fill();
+}
+
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLDOM");
+    }
+    xhttp.async = false;
+    xhttp.open("GET",dname,false);
+    xhttp.send(null);
+    return xhttp.responseXML;
+}
+
+getSf = function(img) {
+    return Math.min(box_width / img.width, box_height / img.height)
+}
+</script>
+
+</html>

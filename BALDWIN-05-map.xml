@@ -1,0 +1,452 @@
+﻿<Map edges="115" floor="5" name="BALDWIN" nodes="110">
+  <Node name="None" pos="(242, 141)">
+    <Edge name="None" to="(281, 141)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(244, 98)">
+    <Edge name="None" to="(281, 109)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(275, 298)">
+    <Edge name="None" to="(303, 299)" type="STAIR"/>
+  </Node>
+  <Node name="None" pos="(281, 109)">
+    <Edge name="None" to="(244, 98)" type="FLAT"/>
+    <Edge name="None" to="(306, 109)" type="FLAT"/>
+    <Edge name="None" to="(281, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(281, 131)">
+    <Edge name="None" to="(281, 141)" type="FLAT"/>
+    <Edge name="None" to="(281, 109)" type="FLAT"/>
+    <Edge name="None" to="(292, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(281, 141)">
+    <Edge name="None" to="(292, 141)" type="FLAT"/>
+    <Edge name="None" to="(242, 141)" type="FLAT"/>
+    <Edge name="None" to="(281, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(283, 615)">
+    <Edge name="None" to="(336, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(292, 131)">
+    <Edge name="None" to="(292, 141)" type="FLAT"/>
+    <Edge name="None" to="(281, 131)" type="FLAT"/>
+    <Edge name="None" to="(345, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(292, 141)">
+    <Edge name="None" to="(281, 141)" type="FLAT"/>
+    <Edge name="None" to="(292, 159)" type="FLAT"/>
+    <Edge name="None" to="(292, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(292, 159)">
+    <Edge name="None" to="(292, 141)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(303, 299)">
+    <Edge name="None" to="(303, 342)" type="FLAT"/>
+    <Edge name="None" to="(275, 298)" type="STAIR"/>
+  </Node>
+  <Node name="None" pos="(303, 342)">
+    <Edge name="None" to="(303, 299)" type="FLAT"/>
+    <Edge name="None" to="(333, 372)" type="FLAT"/>
+    <Edge name="None" to="(310, 342)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(306, 89)">
+    <Edge name="None" to="(306, 109)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(306, 109)">
+    <Edge name="None" to="(372, 109)" type="FLAT"/>
+    <Edge name="None" to="(281, 109)" type="FLAT"/>
+    <Edge name="None" to="(306, 89)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(310, 342)">
+    <Edge name="None" to="(303, 342)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(317, 406)">
+    <Edge name="None" to="(353, 406)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(327, 170)">
+    <Edge name="None" to="(342, 178)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(333, 365)">
+    <Edge name="None" to="(333, 372)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(333, 372)">
+    <Edge name="None" to="(303, 342)" type="FLAT"/>
+    <Edge name="None" to="(353, 406)" type="FLAT"/>
+    <Edge name="None" to="(333, 365)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(336, 251)">
+    <Edge name="None" to="(342, 251)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(336, 597)">
+    <Edge name="None" to="(336, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(336, 615)">
+    <Edge name="None" to="(283, 615)" type="FLAT"/>
+    <Edge name="None" to="(336, 597)" type="FLAT"/>
+    <Edge name="None" to="(347, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(342, 178)">
+    <Edge name="None" to="(342, 251)" type="FLAT"/>
+    <Edge name="None" to="(384, 178)" type="FLAT"/>
+    <Edge name="None" to="(327, 170)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(342, 251)">
+    <Edge name="None" to="(336, 251)" type="FLAT"/>
+    <Edge name="None" to="(342, 178)" type="FLAT"/>
+    <Edge name="None" to="(396, 251)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(342, 501)">
+    <Edge name="None" to="(347, 501)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(345, 131)">
+    <Edge name="None" to="(345, 141)" type="FLAT"/>
+    <Edge name="None" to="(372, 131)" type="FLAT"/>
+    <Edge name="None" to="(292, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(345, 141)">
+    <Edge name="None" to="(345, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(347, 501)">
+    <Edge name="None" to="(380, 501)" type="FLAT"/>
+    <Edge name="None" to="(380, 447)" type="FLAT"/>
+    <Edge name="None" to="(347, 522)" type="FLAT"/>
+    <Edge name="None" to="(342, 501)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(347, 522)">
+    <Edge name="None" to="(380, 522)" type="FLAT"/>
+    <Edge name="None" to="(380, 569)" type="FLAT"/>
+    <Edge name="None" to="(347, 501)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(347, 596)">
+    <Edge name="None" to="(347, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(347, 615)">
+    <Edge name="None" to="(380, 615)" type="FLAT"/>
+    <Edge name="None" to="(347, 596)" type="FLAT"/>
+    <Edge name="None" to="(336, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(353, 406)">
+    <Edge name="None" to="(317, 406)" type="FLAT"/>
+    <Edge name="None" to="(333, 372)" type="FLAT"/>
+    <Edge name="None" to="(388, 406)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(356, 340)">
+    <Edge name="None" to="(388, 368)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(372, 92)">
+    <Edge name="None" to="(372, 109)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(372, 109)">
+    <Edge name="None" to="(306, 109)" type="FLAT"/>
+    <Edge name="None" to="(372, 92)" type="FLAT"/>
+    <Edge name="None" to="(372, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(372, 131)">
+    <Edge name="None" to="(372, 109)" type="FLAT"/>
+    <Edge name="None" to="(384, 131)" type="FLAT"/>
+    <Edge name="None" to="(345, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 447)">
+    <Edge name="None" to="(388, 413)" type="FLAT"/>
+    <Edge name="None" to="(380, 458)" type="FLAT"/>
+    <Edge name="None" to="(347, 501)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 458)">
+    <Edge name="None" to="(380, 501)" type="FLAT"/>
+    <Edge name="None" to="(380, 447)" type="FLAT"/>
+    <Edge name="None" to="(418, 458)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 501)">
+    <Edge name="None" to="(380, 458)" type="FLAT"/>
+    <Edge name="None" to="(380, 506)" type="FLAT"/>
+    <Edge name="None" to="(347, 501)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 506)">
+    <Edge name="None" to="(380, 501)" type="FLAT"/>
+    <Edge name="None" to="(380, 522)" type="FLAT"/>
+    <Edge name="None" to="(416, 506)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 522)">
+    <Edge name="None" to="(380, 554)" type="FLAT"/>
+    <Edge name="None" to="(380, 506)" type="FLAT"/>
+    <Edge name="None" to="(347, 522)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 554)">
+    <Edge name="None" to="(380, 522)" type="FLAT"/>
+    <Edge name="None" to="(414, 554)" type="FLAT"/>
+    <Edge name="None" to="(380, 569)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 569)">
+    <Edge name="None" to="(380, 554)" type="FLAT"/>
+    <Edge name="None" to="(347, 522)" type="FLAT"/>
+    <Edge name="None" to="(380, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 615)">
+    <Edge name="None" to="(418, 615)" type="FLAT"/>
+    <Edge name="None" to="(347, 615)" type="FLAT"/>
+    <Edge name="None" to="(380, 569)" type="FLAT"/>
+    <Edge name="None" to="(380, 641)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(380, 641)">
+    <Edge name="None" to="(380, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(384, 108)">
+    <Edge name="None" to="(384, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(384, 131)">
+    <Edge name="None" to="(388, 131)" type="FLAT"/>
+    <Edge name="None" to="(372, 131)" type="FLAT"/>
+    <Edge name="None" to="(384, 108)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(384, 178)">
+    <Edge name="None" to="(342, 178)" type="FLAT"/>
+    <Edge name="None" to="(401, 206)" type="FLAT"/>
+    <Edge name="None" to="(402, 178)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 131)">
+    <Edge name="None" to="(446, 131)" type="FLAT"/>
+    <Edge name="None" to="(384, 131)" type="FLAT"/>
+    <Edge name="None" to="(388, 157)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 157)">
+    <Edge name="None" to="(388, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 362)">
+    <Edge name="None" to="(388, 368)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 368)">
+    <Edge name="None" to="(388, 362)" type="FLAT"/>
+    <Edge name="None" to="(356, 340)" type="FLAT"/>
+    <Edge name="None" to="(388, 406)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 406)">
+    <Edge name="None" to="(388, 413)" type="FLAT"/>
+    <Edge name="None" to="(353, 406)" type="FLAT"/>
+    <Edge name="None" to="(388, 368)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(388, 413)">
+    <Edge name="None" to="(380, 447)" type="FLAT"/>
+    <Edge name="None" to="(415, 413)" type="FLAT"/>
+    <Edge name="None" to="(388, 406)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(396, 239)">
+    <Edge name="None" to="(396, 251)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(396, 251)">
+    <Edge name="None" to="(342, 251)" type="FLAT"/>
+    <Edge name="None" to="(396, 239)" type="FLAT"/>
+    <Edge name="None" to="(446, 259)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(401, 191)">
+    <Edge name="None" to="(401, 206)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(401, 206)">
+    <Edge name="None" to="(414, 206)" type="FLAT"/>
+    <Edge name="None" to="(384, 178)" type="FLAT"/>
+    <Edge name="None" to="(401, 191)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(402, 178)">
+    <Edge name="None" to="(446, 178)" type="FLAT"/>
+    <Edge name="None" to="(384, 178)" type="FLAT"/>
+    <Edge name="None" to="(402, 182)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(402, 182)">
+    <Edge name="None" to="(402, 178)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(411, 163)">
+    <Edge name="None" to="(446, 163)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(413, 274)">
+    <Edge name="None" to="(446, 274)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(414, 190)">
+    <Edge name="None" to="(414, 206)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(414, 206)">
+    <Edge name="None" to="(401, 206)" type="FLAT"/>
+    <Edge name="None" to="(428, 190)" type="FLAT"/>
+    <Edge name="None" to="(414, 190)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(414, 554)">
+    <Edge name="None" to="(380, 554)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(415, 338)">
+    <Edge name="None" to="(415, 380)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(415, 380)">
+    <Edge name="None" to="(446, 323)" type="FLAT"/>
+    <Edge name="None" to="(415, 413)" type="FLAT"/>
+    <Edge name="None" to="(415, 338)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(415, 413)">
+    <Edge name="None" to="(388, 413)" type="FLAT"/>
+    <Edge name="None" to="(484, 465)" type="FLAT"/>
+    <Edge name="None" to="(415, 380)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(416, 506)">
+    <Edge name="None" to="(380, 506)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(418, 458)">
+    <Edge name="None" to="(380, 458)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(418, 593)">
+    <Edge name="None" to="(418, 615)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(418, 615)">
+    <Edge name="None" to="(380, 615)" type="FLAT"/>
+    <Edge name="None" to="(445, 615)" type="FLAT"/>
+    <Edge name="None" to="(418, 593)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(428, 190)">
+    <Edge name="None" to="(414, 206)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(445, 565)">
+    <Edge name="None" to="(445, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(445, 573)">
+    <Edge name="None" to="(473, 573)" type="FLAT"/>
+    <Edge name="None" to="(445, 615)" type="FLAT"/>
+    <Edge name="None" to="(445, 565)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(445, 615)">
+    <Edge name="None" to="(418, 615)" type="FLAT"/>
+    <Edge name="None" to="(532, 615)" type="FLAT"/>
+    <Edge name="None" to="(445, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 131)">
+    <Edge name="None" to="(446, 163)" type="FLAT"/>
+    <Edge name="None" to="(503, 131)" type="FLAT"/>
+    <Edge name="None" to="(388, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 163)">
+    <Edge name="None" to="(446, 131)" type="FLAT"/>
+    <Edge name="None" to="(446, 178)" type="FLAT"/>
+    <Edge name="None" to="(411, 163)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 178)">
+    <Edge name="None" to="(446, 163)" type="FLAT"/>
+    <Edge name="None" to="(446, 191)" type="FLAT"/>
+    <Edge name="None" to="(402, 178)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 191)">
+    <Edge name="None" to="(446, 202)" type="FLAT"/>
+    <Edge name="None" to="(486, 191)" type="FLAT"/>
+    <Edge name="None" to="(446, 178)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 202)">
+    <Edge name="None" to="(446, 259)" type="FLAT"/>
+    <Edge name="None" to="(446, 191)" type="FLAT"/>
+    <Edge name="None" to="(498, 276)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 259)">
+    <Edge name="None" to="(446, 274)" type="FLAT"/>
+    <Edge name="None" to="(446, 202)" type="FLAT"/>
+    <Edge name="None" to="(396, 251)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 274)">
+    <Edge name="None" to="(446, 323)" type="FLAT"/>
+    <Edge name="None" to="(446, 259)" type="FLAT"/>
+    <Edge name="None" to="(413, 274)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(446, 323)">
+    <Edge name="None" to="(415, 380)" type="FLAT"/>
+    <Edge name="None" to="(496, 344)" type="FLAT"/>
+    <Edge name="None" to="(446, 274)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(473, 535)">
+    <Edge name="None" to="(473, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(473, 573)">
+    <Edge name="None" to="(484, 573)" type="FLAT"/>
+    <Edge name="None" to="(473, 574)" type="FLAT"/>
+    <Edge name="None" to="(445, 573)" type="FLAT"/>
+    <Edge name="None" to="(473, 535)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(473, 574)">
+    <Edge name="None" to="(473, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(479, 589)">
+    <Edge name="None" to="(484, 589)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(482, 550)">
+    <Edge name="None" to="(489, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(484, 465)">
+    <Edge name="None" to="(415, 413)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(484, 573)">
+    <Edge name="None" to="(484, 589)" type="FLAT"/>
+    <Edge name="None" to="(489, 573)" type="FLAT"/>
+    <Edge name="None" to="(473, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(484, 589)">
+    <Edge name="None" to="(484, 573)" type="FLAT"/>
+    <Edge name="None" to="(479, 589)" type="FLAT"/>
+    <Edge name="None" to="(494, 589)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(486, 191)">
+    <Edge name="None" to="(446, 191)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(489, 550)">
+    <Edge name="None" to="(489, 573)" type="FLAT"/>
+    <Edge name="None" to="(482, 550)" type="FLAT"/>
+    <Edge name="None" to="(497, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(489, 573)">
+    <Edge name="None" to="(484, 573)" type="FLAT"/>
+    <Edge name="None" to="(489, 550)" type="FLAT"/>
+    <Edge name="None" to="(512, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(494, 589)">
+    <Edge name="None" to="(484, 589)" type="FLAT"/>
+  </Node>
+  <Node name="550" pos="(496, 344)">
+    <Edge name="Test" to="(446, 323)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(497, 550)">
+    <Edge name="None" to="(489, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(498, 276)">
+    <Edge name="None" to="(446, 202)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(502, 550)">
+    <Edge name="None" to="(512, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(503, 131)">
+    <Edge name="None" to="(446, 131)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(506, 589)">
+    <Edge name="None" to="(517, 589)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(512, 550)">
+    <Edge name="None" to="(512, 573)" type="FLAT"/>
+    <Edge name="None" to="(516, 550)" type="FLAT"/>
+    <Edge name="None" to="(502, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(512, 573)">
+    <Edge name="None" to="(489, 573)" type="FLAT"/>
+    <Edge name="None" to="(512, 550)" type="FLAT"/>
+    <Edge name="None" to="(517, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(516, 550)">
+    <Edge name="None" to="(512, 550)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(517, 573)">
+    <Edge name="None" to="(527, 534)" type="FLAT"/>
+    <Edge name="None" to="(512, 573)" type="FLAT"/>
+    <Edge name="None" to="(517, 589)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(517, 589)">
+    <Edge name="None" to="(506, 589)" type="FLAT"/>
+    <Edge name="None" to="(522, 589)" type="FLAT"/>
+    <Edge name="None" to="(517, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(522, 589)">
+    <Edge name="None" to="(517, 589)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(527, 534)">
+    <Edge name="None" to="(517, 573)" type="FLAT"/>
+  </Node>
+  <Node name="None" pos="(532, 615)">
+    <Edge name="None" to="(445, 615)" type="FLAT"/>
+  </Node>
+</Map>
