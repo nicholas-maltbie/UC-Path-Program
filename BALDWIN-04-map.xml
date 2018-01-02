@@ -1,7 +1,6 @@
-<Map edges="25" floor="4" name="BALDWIN" nodes="27">
-  <Node name="None" pos="(448, 339)">
-    <Edge name="None" to="(478, 339)" type="FLAT"/>
-  </Node>
+﻿<Map edges="25" floor="4" name="BALDWIN" nodes="27">
+  <Node name="440A" pos="(448, 339)"><Edge name="None" to="(478, 339)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(451, 292)">
     <Edge name="None" to="(481, 292)" type="FLAT"/>
   </Node>
@@ -17,9 +16,9 @@
   <Node name="None" pos="(459, 248)">
     <Edge name="None" to="(481, 248)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(478, 302)">
-    <Edge name="None" to="(478, 330)" type="STAIR"/>
-  </Node>
+  <Node name="STAIR4A" pos="(478, 302)"><Edge name="None" to="(478, 330)" type="STAIR"/>
+<Edge name="Stair4a" type="STAIR" onFloor="False" building="BALDWIN" floor="05"/>
+</Node>
   <Node name="None" pos="(478, 330)">
     <Edge name="None" to="(478, 339)" type="FLAT"/>
     <Edge name="None" to="(496, 330)" type="FLAT"/>
@@ -35,9 +34,8 @@
     <Edge name="None" to="(478, 431)" type="FLAT"/>
     <Edge name="None" to="(519, 356)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(478, 431)">
-    <Edge name="None" to="(478, 356)" type="FLAT"/>
-  </Node>
+  <Node name="440" pos="(478, 431)"><Edge name="None" to="(478, 356)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(481, 132)">
     <Edge name="None" to="(481, 173)" type="FLAT"/>
   </Node>
@@ -58,20 +56,18 @@
     <Edge name="None" to="(481, 262)" type="FLAT"/>
     <Edge name="None" to="(481, 223)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(481, 262)">
-    <Edge name="None" to="(511, 262)" type="FLAT"/>
-    <Edge name="None" to="(481, 248)" type="FLAT"/>
-    <Edge name="None" to="(481, 292)" type="FLAT"/>
-    <Edge name="None" to="(454, 262)" type="FLAT"/>
-  </Node>
+  <Node name="445" pos="(481, 262)"><Edge name="None" to="(511, 262)" type="FLAT"/>
+<Edge name="None" to="(481, 248)" type="FLAT"/>
+<Edge name="None" to="(481, 292)" type="FLAT"/>
+<Edge name="None" to="(454, 262)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(481, 292)">
     <Edge name="None" to="(451, 292)" type="FLAT"/>
     <Edge name="None" to="(481, 262)" type="FLAT"/>
     <Edge name="None" to="(496, 330)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(488, 516)">
-    <Edge name="None" to="(488, 569)" type="FLAT"/>
-  </Node>
+  <Node name="435" pos="(488, 516)"><Edge name="None" to="(488, 569)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(488, 569)">
     <Edge name="None" to="(488, 640)" type="FLAT"/>
     <Edge name="None" to="(509, 613)" type="FLAT"/>
@@ -97,9 +93,8 @@
   <Node name="None" pos="(511, 262)">
     <Edge name="None" to="(481, 262)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(519, 356)">
-    <Edge name="None" to="(478, 356)" type="FLAT"/>
-  </Node>
+  <Node name="440C" pos="(519, 356)"><Edge name="None" to="(478, 356)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(556, 322)">
     <Edge name="None" to="(496, 330)" type="FLAT"/>
   </Node>

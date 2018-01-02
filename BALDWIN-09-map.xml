@@ -1,19 +1,17 @@
-<Map edges="4" floor="9" name="BALDWIN" nodes="5">
+﻿<Map edges="4" floor="9" name="BALDWIN" nodes="5">
   <Node name="None" pos="(373, 338)">
     <Edge name="None" to="(373, 375)" type="STAIR"/>
     <Edge name="None" to="(402, 338)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(373, 375)">
-    <Edge name="None" to="(373, 338)" type="STAIR"/>
-  </Node>
+  <Node name="STAIR9A" pos="(373, 375)"><Edge name="None" to="(373, 338)" type="STAIR"/>
+<Edge name="STAIR8A" type="STAIR" onFloor="False" building="BALDWIN" floor="08"/></Node>
   <Node name="None" pos="(402, 338)">
     <Edge name="None" to="(428, 324)" type="FLAT"/>
     <Edge name="None" to="(373, 338)" type="FLAT"/>
     <Edge name="None" to="(402, 385)" type="FLAT"/>
   </Node>
-  <Node name="None" pos="(402, 385)">
-    <Edge name="None" to="(402, 338)" type="FLAT"/>
-  </Node>
+  <Node name="950" pos="(402, 385)"><Edge name="None" to="(402, 338)" type="FLAT"/>
+</Node>
   <Node name="None" pos="(428, 324)">
     <Edge name="None" to="(402, 338)" type="FLAT"/>
   </Node>
