@@ -14,57 +14,49 @@
 <datalist id="buildings">
     <option value="BALDWIN">
 </datalist>
-<datalist id="floors">
-    <option value="04">
-    <option value="05">
-    <option value="06">
-    <option value="07">
-    <option value="08">
-    <option value="09">
-</datalist>
+<datalist id="floors"></datalist>
+<datalist id="floors1"></datalist>
+<datalist id="floors2"></datalist>
+<datalist id="rooms1"></datalist>
+<datalist id="rooms2"></datalist>
+
+<p>ViewPort</p>
+<p>
+Building: <input id="selBuilding" list="buildings" 
+    placeholder="Building" name="building" 
+    onchange="updateDisplay()"/>
+</p>
+<p>
+Floor <input id="selFloor" list="floors" 
+    placeholder="Floor" name="floor"
+    onchange="updateDisplay()"/>
+</p>
 
 <p>Point 1</p>
 <p>
 Building: <input id="selBuilding1" list="buildings" placeholder="Building" name="building"/>
 </p>
 <p>
-Floor <input id="selFloor1" list="floors" placeholder="Floor" name="floor"/>
+Floor <input id="selFloor1" list="floors1" placeholder="Floor" name="floor"/>
 </p>
-
-<button id = "display">
-Display Map
-</button>
+<p>
+Room <input id="selRoom1" list="rooms1" placeholder="Room" name="floor"/>
+</p>
 
 <p>Point 2</p>
 <p>
 Building: <input id="selBuilding2" list="buildings" placeholder="Building" name="building"/>
 </p>
 <p>
-Floor <input id="selFloor1" list="floors" placeholder="Floor" name="floor"/>
+Floor <input id="selFloor2" list="floors2" placeholder="Floor" name="floor"/>
+</p>
+<p>
+Room <input id="selRoom2" list="rooms2" placeholder="Room" name="floor"/>
 </p>
 
 <p>
 <canvas id="myCanvas" width="800" height="500"/>
 </p>
-
-<p>
-    Name: <input type="text" id="Name"/>
-</p>
-<p>
-    Pos: <input type="text" id="Posx"/><input type="text" id="Posy"/>
-</p>
-<p>
-    Edges: <textarea id="Edges" rows=4 cols=80>
-    </textarea>
-</p>
-
-<button id = "updateButton">
-Update
-</button>
-
-<button id = "saveButton">
-Download Map File
-</button>
 
 <script>
 var box_width = 800
@@ -72,13 +64,99 @@ var box_height = 500
 var c=document.getElementById("myCanvas")
 var data = null
 var nodes = []
+var graph = {}
+
+var buildings = ["BALDWIN"]
+var building_floors = {"BALDWIN":["04", "05", "06", "07", "08", "09"]}
+
+buildings.forEach(function (b) {
+    graph[b] = {}
+    building_floors[b].forEach(function (f) {
+        graph[b][f] = {}
+        var n = loadXMLDoc(b + "-" + f + "-map.xml").getElementsByTagName("Map")[0].getElementsByTagName("Node")
+        for (index = 0; index < n.length; index++) {
+            var node = n[index]
+            var key = getElemKey(node)
+            node.setAttribute("building", b)
+            node.setAttribute("floor", f)
+            graph[b][f][key] = node
+            if (node.hasAttribute("name") && node.getAttribute("name") != "None")
+                graph[b][f][node.getAttribute("name")] = node
+            if (node.hasAttribute("pos") && node.getAttribute("pos") != "None")
+                graph[b][f][node.getAttribute("pos")] = node
+        }
+    })
+})
+
+function getUnique(node) {
+    return node.getAttribute("building") + "_" + 
+            node.getAttribute("floor") + "_" + 
+            getElemKey(node)
+}
+
+function getElemKey(node) {
+    if (node.hasAttribute("name") && node.getAttribute("name") != "None")
+        return node.getAttribute("name")
+    if (node.hasAttribute("to"))
+        return node.getAttribute("to")
+    if (node.hasAttribute("pos"))
+        return node.getAttribute("pos")
+    return "None"
+}
+
+function getPath(start, end) {
+    var checked = {}
+    var queue = []
+    queue.push([start])
+    while (queue.length > 0) {
+        var path = queue.shift()
+        var node = path[path.length - 1]
+        val = getUnique(node)
+        //console.log(val)
+        if (!(val in checked)) {
+            checked[val] = true
+            var adj = getAdjacent(node)
+            //console.log(adj)
+            //console.log("-------")
+            for (a in adj) {
+                var next = adj[a]
+                var clone = path.slice()
+                clone.push(next)
+                queue.push(clone)
+            }
+        }
+        if (node == end) {
+            return path
+        }
+    }
+    return null
+}
+
+function getAdjacent(node) {
+    var adj = []
+    var edges = node.getElementsByTagName("Edge")
+    for (index = 0; index < edges.length; index++) {
+        edge = edges[index]
+        key = getElemKey(edge)
+        b = node.getAttribute("building")
+        f = node.getAttribute("floor")
+        if (edge.hasAttribute("building"))
+            b = node.getAttribute("building")
+        if (edge.hasAttribute("floor"))
+            f = edge.getAttribute("floor")
+        //console.log(b, f, key)
+        adj.push(graph[b][f][key])
+    }
+    return adj
+}
+
 var sf = 1.0
 var sel1
 var sel2
 var move = true
 
-var building = ""
-var floor = ""
+var dispBuilding = ""
+var dispFloor = ""
 
 var selBuilding = document.getElementById("selBuilding")
 var selFloor = document.getElementById("selFloor")
@@ -88,16 +166,57 @@ var posy = document.getElementById("Posy")
 var edges = document.getElementById("Edges")
 
 window.onload = function() {
-    c.addEventListener("mousemove", checkThingy, false);
-    c.addEventListener("mousedown", function() {if (sel != null) move = !move}, false);
-};
+    c.addEventListener("mousemove", checkThingy, false)
+    c.addEventListener("mousedown", function() {if (sel != null) move = !move}, false)
+}
 
-function updateData(e) {
-    console.log(selFloor.value, selBuilding.value)
-    floor = selFloor.value
-    building = selBuilding.value
-    if (floor != "" && building != "") {
-        var map = loadXMLDoc(building + "-" + floor + "-map.xml")
+build1 = document.getElementById("selBuilding1")
+floor1 = document.getElementById("selFloor1")
+build2 = document.getElementById("selBuilding2")
+floor2 = document.getElementById("selFloor2")
+floorList1 = document.getElementById("floors1")
+floorList2 = document.getElementById("floors2")
+room1 = document.getElementById("setRoom1")
+room2 = document.getElementById("setRoom2")
+roomList1 = document.getElementById("rooms1")
+roomList2 = document.getElementById("rooms2")
+selBuilding.addEventListener("input", function() {updateFloors(selBuilding, selFloor, document.getElementById("floors"))})
+build1.addEventListener("input", function() {updateFloors(build1, floor1, floorList1)})
+build2.addEventListener("input", function() {updateFloors(build2, floor2, floorList2)})
+floor1.addEventListener("input", function() {updateRooms(build1, floor1, roomList1)})
+floor2.addEventListener("input", function() {updateRooms(build2, floor2, roomList2)})
+
+function updateFloors(buildingBox, floorBox, floorList) {
+    if (buildingBox.value != "") {
+        options = ""
+        poss = building_floors[buildingBox.value]
+        for (var i = 0; i < poss.length; i++) 
+            options += "<option value='" + poss[i] + "'/>"
+        floorList.innerHTML = options
+    }
+}
+
+function updateRooms(buildingBox, floorBox, roomList) {
+    if (buildingBox.value != "" && floorBox.value != "") {
+        options = ""
+        poss = []
+        for (var room in graph[buildingBox.value][floorBox.value]) {
+            if (typeof room == 'string' && room[0] != "(") {
+                poss.push(room)
+            }
+        }
+        for (var i = 0; i < poss.length; i++) 
+            options += "<option value='" + poss[i] + "'/>"
+        roomList.innerHTML = options
+    }
+}
+
+function updateDisplay() {
+    //console.log(selFloor.value, selBuilding.value)
+    dispFloor = selFloor.value
+    dispBuilding = selBuilding.value
+    if (dispFloor != "" && dispBuilding != "") {
+        var map = loadXMLDoc(dispBuilding + "-" + dispFloor + "-map.xml")
         data = map.getElementsByTagName("Map")[0]
         nodes = data.getElementsByTagName("Node")
         
@@ -106,7 +225,7 @@ function updateData(e) {
 }
 
 function checkThingy(e) {
-    if (floor != "" && building != "") {
+    if (dispFloor != "" && dispBuilding != "") {
         if (move) {
             var rect = c.getBoundingClientRect();
             var mouseX = e.clientX - rect.left
@@ -152,11 +271,11 @@ function getNodeHover(mx, my, rad) {
 
 function update() {
     var ctx=c.getContext("2d")
-    var img=document.getElementById(building + "-" + floor)
+    var img=document.getElementById(dispBuilding + "-" + dispFloor)
     sf = getSf(img)
     ctx.drawImage(img,0,0, img.width * sf, img.height * sf);
     
-    for (index = 0, len = nodes.length; index < len; index++) {
+    /*for (index = 0, len = nodes.length; index < len; index++) {
         var node = nodes[index]
         var edges = node.getElementsByTagName("Edge")
         for (i2 = 0, len2 = edges.length; i2 < len2; i2++) {
@@ -169,7 +288,7 @@ function update() {
             drawNode(ctx, nodes[index], sf, 5)
         else 
             drawNode(ctx, nodes[index], sf, 1)
-    }
+    }*/
 }
 
 function drawNode(ctx, node, sf, rad) {
